@@ -39,3 +39,7 @@ Thumbs.db
 # secret files #
 ######################
 server/apis/secrets.js
+
+# secret folders #
+##################
+node_modules
