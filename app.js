@@ -3,6 +3,7 @@ var express = require('express');
 var twilio = require('twilio');
 var bodyParser = require('body-parser');
 var multer = require('multer');
+var Promise = require('promise');
 var server = require('./server/server');
 var app = express();
 
@@ -19,15 +20,16 @@ app.get('/', function (req, res) {
 
 // Create the backend twilio endpoint calls.
 app.get('/query/sms', function (req, res) {
-  console.log(req.query);
-  console.log(server.parse(req.query.Body));
 
-  var resp = new twilio.TwimlResponse();
-  resp.message('Testing text!');
+  // Call promised parse function on server, generate valid TwimlResponse.
+  server.parse(req.query.Body).then(function (data) {
+    var resp = new twilio.TwimlResponse();
+    resp.message(data);
 
-  // Set response headers and send to url endpoint.
-  res.writeHead(200, {'Content-Type': 'text/xml'});
-  res.end(resp.toString());
+    // Set response headers and send to url endpoint.
+    res.writeHead(200, {'Content-Type': 'text/xml'});
+    res.end(resp.toString());
+  });
 });
 
 // Start the express app.
