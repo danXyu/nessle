@@ -1,0 +1,23 @@
+{
+  "name": "texless",
+  "version": "0.0.1",
+  "description": "query the world's internet with text",
+  "author": "dan yu",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danXyu/texless.git"
+  },
+  "contributors": [
+    {
+      "name": "dan yu",
+      "email": "danyu1996@gmail.com"
+    }
+  ],
+  "dependencies": {
+    "body-parser": "^1.12.0",
+    "express": "4.x",
+    "multer": "^0.1.8",
+    "twilio": "^1.11.0",
+    "wolfram-alpha": "^0.1.1"
+  }
+}
