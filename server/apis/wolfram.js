@@ -1,7 +1,7 @@
 // Require the necessary api keys and auth tokens.
 var secrets = require('./secrets');
 var Promise = require('promise');
-var wolfram = require('wolfram-alpha').createClient('66H2AQ-A59XR4VERP');
+var wolfram = require('wolfram-alpha').createClient(secrets.WOLFRAM_API_KEY);
 
 /* Function: Calls the Wolfram API with the passed in query and returns the resultant
  * string (selected using smart algorithms) and passing it to twilio.
