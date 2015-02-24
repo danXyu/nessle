@@ -4,7 +4,8 @@
   "description": "query the world's internet with text",
   "author": "dan yu",
   "engines": {
-    "node": "0.12.x"
+    "node": "0.12.x",
+    "npm": "2.6.x"
   },
   "repository": {
     "type": "git",
