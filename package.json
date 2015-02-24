@@ -1,11 +1,11 @@
 {
-  "name": "texless",
+  "name": "nessle",
   "version": "0.0.1",
   "description": "query the world's internet with text",
   "author": "dan yu",
   "repository": {
     "type": "git",
-    "url": "https://github.com/danXyu/texless.git"
+    "url": "https://github.com/danXyu/nessle.git"
   },
   "contributors": [
     {
@@ -19,6 +19,7 @@
     "multer": "^0.1.8",
     "promise": "^6.1.0",
     "twilio": "^1.11.0",
+    "jsdom": "*",
     "wolfram-alpha": "^0.1.1"
   }
 }

@@ -10,12 +10,13 @@ var app = express();
 // Establish middleware for express app.
 app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(multer());
 
 // Establish the index page for mobile demonstration.
 app.get('/', function (req, res) {
-  res.render('index');
+  res.sendfile(__dirname + "client/index.html");
 });
 
 // Create the backend twilio endpoint calls.

@@ -11,6 +11,8 @@ exports.getWolfram = function (query) {
   // Create a promise that should pass result back down to the server.
   return new Promise(function (resolve, reject) {
     wolfram.query(query, function (error, data) {
+      console.log(data);
+      console.log(data[1].subpods);
 
       // Report an errors that occur (very possible).
       if (error) {
