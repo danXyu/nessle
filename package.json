@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "query the world's internet with text",
   "author": "dan yu",
+  "engines": {
+    "node": "0.12.x"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/danXyu/nessle.git"
