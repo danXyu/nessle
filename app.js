@@ -1,25 +1,47 @@
-// Create an express server to serve text queries.
+/**
+ * Module dependencies.
+ */
 var express = require('express');
 var twilio = require('twilio');
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var Promise = require('promise');
-var server = require('./server/server');
 var app = express();
 
-// Establish middleware for express app.
+/**
+ * Express configuration.
+ */
 app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(multer());
 
-// Establish the index page for mobile demonstration.
-app.get('/', function (req, res) {
-  res.sendfile(__dirname + "client/index.html");
-});
+/**
+ * Primary app routes.
+ */
+app.get('/', homeController.getIndex);
+app.get('/login', userController.getLogin);
+app.post('/login', userController.postLogin);
+app.get('/logout', userController.logout);
+app.get('/forgot', userController.getForgot);
+app.post('/forgot', userController.postForgot);
+app.get('/reset/:token', userController.getReset);
+app.post('/reset/:token', userController.postReset);
+app.get('/signup', userController.getSignup);
+app.post('/signup', userController.postSignup);
+app.get('/contact', contactController.getContact);
+app.post('/contact', contactController.postContact);
+app.get('/account', passportConf.isAuthenticated, userController.getAccount);
+app.post('/account/profile', passportConf.isAuthenticated, userController.postUpdateProfile);
+app.post('/account/password', passportConf.isAuthenticated, userController.postUpdatePassword);
+app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
+app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 
-// Create the backend twilio endpoint calls.
+
+/**
+ * API routes.
+ */
 app.get('/query/sms', function (req, res) {
 
   // Call promised parse function on server, generate valid TwimlResponse.
@@ -33,7 +55,9 @@ app.get('/query/sms', function (req, res) {
   });
 });
 
-// Start the express app.
+/**
+ * Start Express server.
+ */
 app.listen(app.get('port'), function () {
   console.log('Express server now listening on port %d in %s mode.', app.get('port'), app.get('env'));
 });
