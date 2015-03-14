@@ -1,9 +1,8 @@
 /**
  * GET /
- * Home page.
  */
-exports.index = function(req, res) {
-  res.render('home', {
+exports.getIndex = function(req, res) {
+  res.render('home/index', {
     title: 'Home'
   });
 };

@@ -1,9 +1,13 @@
-// Require the necessary api keys and auth tokens.
-var secrets = require('./secrets');
+/**
+ * Module dependencies.
+ */
+var secrets = require('../../config/secrets');
 var Promise = require('promise');
-var wolfram = require('wolfram-alpha').createClient(secrets.WOLFRAM_API_KEY);
+var wolfram = require('wolfram-alpha').createClient(secrets.wolfram.appID);
 
-/* Function: Calls the Wolfram API with the passed in query and returns the resultant
+
+/**
+ * Function: Calls the Wolfram API with the passed in query and returns the resultant
  * string (selected using smart algorithms) and passing it to twilio.
  */
 exports.getWolfram = function (query) {
@@ -11,8 +15,6 @@ exports.getWolfram = function (query) {
   // Create a promise that should pass result back down to the server.
   return new Promise(function (resolve, reject) {
     wolfram.query(query, function (error, data) {
-      console.log(data);
-      console.log(data[1].subpods);
 
       // Report an errors that occur (very possible).
       if (error) {
@@ -22,7 +24,7 @@ exports.getWolfram = function (query) {
 
         // Loop through the data and search for the 'Result' parameter.
         for (var i = 0; i < data.length; i++) {
-          if (data[i].title === 'Result') {
+          if (data[i].title === 'Result' || data[i].title === 'Response') {
             var queryResult = data[i].subpods[0].text;
           }
         }

@@ -1,17 +1,18 @@
 /**
  * Module dependencies.
  */
+var Promise = require('promise');
+var wolframAPI = require('../../server/apis/wolfram');
+var twilio = require('twilio');
 
 
 /**
  * GET /api/twilio
  */
-exports.getTwilio = function(req, res, next) {
-  return wolfram.getWolfram(query).then(function (res) {
-    return res;
-  });
+exports.getTwilioResponse = function (req, res) {
+
   // Call promised parse function on server, generate valid TwimlResponse.
-  server.parse(req.query.Body).then(function (data) {
+  wolframAPI.getWolfram(req.query.Body).then(function (data) {
     var resp = new twilio.TwimlResponse();
     resp.message(data);
 

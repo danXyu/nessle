@@ -1,0 +1,71 @@
+extends ../layout
+
+block content
+  #iphone
+    #top
+    #center
+      #msg
+        #msg-top
+          .col-md-4.col-xs-4
+            #connection.pull-left
+              img#signal-img(src='/assets/images/3g-3.png')
+
+            #operator.pull-left
+              span#operator-result.result TELIA
+
+            #connection-type.pull-left
+              #connection-type-wifi-wrapper
+                img#connection-type-wifi(src='/assets/images/wifi-3.png')
+              #connection-type-3g(style='display:none;') 3G
+              #connection-type-4g(style='display:none;') 4G
+
+          .col-md-4.col-xs-4.text-center
+            #clock
+              span#clock-result.result 21:20
+
+          .col-md-4.col-xs-4.text-center
+            .pull-right
+              #battery
+                #battery-percent
+
+            .pull-right
+              #battery-percent-number-container
+                span#battery-percent-number 50 %
+
+          .clearfix
+
+          #txt-messages-container.col-md-4.col-xs-4
+            #txt-messages
+              .pull-left
+                img(src='assets/images/iphone/messages-arrow.jpg')
+              #text-messages-result-container.pull-left.m-l-xs.m-t-xxs
+                span#text-messages-result.result Messages
+
+          #txt-name-container.col-md-4.col-xs-4.text-right
+            #txt-name
+              span#name-result.result Nessle
+
+          #text-contact-result-container.col-md-4.col-xs-4.text-right
+            #txt-contact
+              span#text-contact-result.result Contact
+
+        #msgs-wrapper
+          ul#msgs
+            li.msg.example-msg
+              .content
+                p
+                  | Yeah it is! And you can make one too. Use the tools to the left to build your own.
+              .sep
+
+            li.msg.blue.example-msg
+              .content
+                p
+                  | And I can even write an iMessage and upload a photo from my desktop or smartphone! Nice!
+              .sep
+
+
+        #msgs-bottom
+          #text-textmessage-result Text Message (Placeholder)
+          #text-send-result Send
+
+    #bottom
