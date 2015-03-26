@@ -10,4 +10,5 @@
 
 //= require lib/jquery-2.1.3.min.js
 //= require lib/bootstrap.min.js
+//= require lib/jquery.touchSwipe.min.js
 //= require main.js

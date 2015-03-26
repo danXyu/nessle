@@ -45,6 +45,7 @@ app.get('/', homeController.getIndex);
  * API Routes.
  */
 app.get('/api/twilio', apiController.getTwilioResponse);
+app.post('/api/frontend', apiController.getFrontendResponse);
 
 
 /**

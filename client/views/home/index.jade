@@ -1,71 +1,200 @@
 extends ../layout
 
 block content
-  #iphone
-    #top
-    #center
-      #msg
-        #msg-top
-          .col-md-4.col-xs-4
-            #connection.pull-left
-              img#signal-img(src='/assets/images/3g-3.png')
 
-            #operator.pull-left
-              span#operator-result.result TELIA
+  //- Split the page into simulator and content banner.
+  .row
 
-            #connection-type.pull-left
-              #connection-type-wifi-wrapper
-                img#connection-type-wifi(src='/assets/images/wifi-3.png')
-              #connection-type-3g(style='display:none;') 3G
-              #connection-type-4g(style='display:none;') 4G
+    //- Content banner
+    .col-md-8
+      #banner
+        .inner
+          header
+            h2 Nessle
+          p Access the internet. Even without an internet connection
+          br
+          p To Get Started: <strong>Query</strong> the simulator or <strong>Text</strong> (925) 326-6640
+          br
+          br
+          p Here are some example queries
+          #directions-carousel.carousel.slide(data-interval='3000', data-ride='carousel')
 
-          .col-md-4.col-xs-4.text-center
-            #clock
-              span#clock-result.result 21:20
+            //- Indicators
+            ol.carousel-indicators
+              li.active(data-target='#directions-carousel', data-slide-to='0')
+              li(data-target='#directions-carousel', data-slide-to='1')
+              li(data-target='#directions-carousel', data-slide-to='2')
 
-          .col-md-4.col-xs-4.text-center
-            .pull-right
-              #battery
-                #battery-percent
+            //- Items
+            .carousel-inner
+              .active.item
+                h3 Facts and Figures
+                br
+                p <strong>Query</strong>: How tall is the Eiffel Tower?
+                p <strong>Response</strong>: 324 meters.
+                br
+                p <strong>Query</strong>: How many people are in the world?
+                p <strong>Response</strong>: 7.13 billion people.
+              .item
+                h3 Conversions
+                br
+                p <strong>Query</strong>: How many grams are in an ounce?
+                p <strong>Response</strong>: 28.35 grams.
+                br
+                p <strong>Query</strong>: Convert 4 cups to tablespoons.
+                p <strong>Response</strong>: 64 tbsp.
+              .item
+                h3 Mathematics
+                br
+                p <strong>Query</strong>: What is 4x4?
+                p <strong>Response</strong>: 16.
+                br
+                p <strong>Query</strong>: What is 37x37?
+                p <strong>Response</strong>: 1369.
 
-            .pull-right
-              #battery-percent-number-container
-                span#battery-percent-number 50 %
+          p Facebook and Twitter Integration is almost here!
 
-          .clearfix
-
-          #txt-messages-container.col-md-4.col-xs-4
-            #txt-messages
-              .pull-left
-                img(src='assets/images/iphone/messages-arrow.jpg')
-              #text-messages-result-container.pull-left.m-l-xs.m-t-xxs
-                span#text-messages-result.result Messages
-
-          #txt-name-container.col-md-4.col-xs-4.text-right
-            #txt-name
-              span#name-result.result Nessle
-
-          #text-contact-result-container.col-md-4.col-xs-4.text-right
-            #txt-contact
-              span#text-contact-result.result Contact
-
-        #msgs-wrapper
-          ul#msgs
-            li.msg.example-msg
-              .content
-                p
-                  | Yeah it is! And you can make one too. Use the tools to the left to build your own.
-              .sep
-
-            li.msg.blue.example-msg
-              .content
-                p
-                  | And I can even write an iMessage and upload a photo from my desktop or smartphone! Nice!
-              .sep
-
-
-        #msgs-bottom
-          #text-textmessage-result Text Message (Placeholder)
-          #text-send-result Send
-
-    #bottom
+    //- Simulator
+    .col-md-4
+      #colour.white
+        #iPhone.on
+          b.lock
+            span.btn-outer
+          b.rotation.btn-outer
+          b.volume.up
+            span.btn-outer
+          b.volume.down
+            span.btn-outer
+          span.strip.top-left
+          span.strip.top-right
+          span.strip.bottom-left
+          span.strip.bottom-right
+          span.camera-front
+            span
+          span.speaker
+            span.inner
+              span
+                | .............................
+                br
+                | .............................
+                br
+                | .............................
+          b.home
+            span
+          .inner-1
+            .inner-2
+              .screen
+                .screen-inner
+                  #multitasking.app
+                    .app-list
+                      .panel.one
+                        .open-home
+                        .open-phone
+                      .panel.two
+                        .open-messages
+                        .open-mail
+                  #siri.hide
+                  #search.app
+                  #search-keyboard
+                  #pull-down
+                    b.handle-btn
+                  #widgets-menu
+                    ul.widgets
+                      li.airplane.off
+                      li.wifi
+                      li.bluetooth
+                    ul.widgets-sub
+                      li.dnd.off
+                      li.rotation-lock.off
+                    b#hide-widgets-menu
+                  .status-bar
+                    ul.signal
+                      li
+                      li
+                      li
+                      li
+                      li
+                    span.network Nessle
+                    .icons
+                      i.airplane.off
+                      i.wifi
+                      i.bluetooth
+                    .time
+                      span#text-hour
+                      | :
+                      span#text-minute
+                    .battery
+                      span.percentage 100%
+                      span.charge
+                      i
+                  #messages.app
+                    .bg
+                    #messages-output
+                      span.sender Welcome to Nessle! Your untethered connection to the internet.
+                    .header
+                    input#messages-input(placeholder='iMessage')
+                    .submit.messages-send
+                    .keyboard
+                      ul.row1
+                        li(data-value='q')
+                          span Q
+                        li(data-value='w')
+                          span W
+                        li(data-value='e')
+                          span E
+                        li(data-value='r')
+                          span R
+                        li(data-value='t')
+                          span T
+                        li(data-value='y')
+                          span Y
+                        li(data-value='u')
+                          span U
+                        li(data-value='i')
+                          span I
+                        li(data-value='o')
+                          span O
+                        li(data-value='p')
+                          span P
+                      ul.row2
+                        li(data-value='a')
+                          span A
+                        li(data-value='s')
+                          span S
+                        li(data-value='d')
+                          span D
+                        li(data-value='f')
+                          span F
+                        li(data-value='g')
+                          span G
+                        li(data-value='h')
+                          span H
+                        li(data-value='j')
+                          span J
+                        li(data-value='k')
+                          span K
+                        li(data-value='l')
+                          span L
+                      ul.row3
+                        li.btn.shift
+                          i.shift
+                        li(data-value='z')
+                          span Z
+                        li(data-value='x')
+                          span X
+                        li(data-value='c')
+                          span C
+                        li(data-value='v')
+                          span V
+                        li(data-value='b')
+                          span B
+                        li(data-value='n')
+                          span N
+                        li(data-value='m')
+                          span M
+                        li.btn.delete
+                          i.delete ×
+                      ul.row4
+                        li.btn.numbers .?123
+                        li.btn.space(data-value=' ') space
+                        li.btn.return.messages-send return
