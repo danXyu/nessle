@@ -1,26 +1,64 @@
 @import "vendor/bootstrap/bootstrap";
-@import "vendor/font-awesome/font-awesome";
+@import "vendor/font-awesome/font-awesome.min.css";
 @import "vendor/simulator/simulator.css";
+@import "vendor/templates/rival.css";
 
-html {
-  background-image: url('/assets/images/homepage/background_pattern.png');
-  background-repeat: repeat;
-}
 
 body {
   background: transparent;
 }
 
+span.rotate {
+  display: inline-block;
+}
 .container-fluid {
-  height: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#colour {
+  margin-top: -50px;
+}
+.special {
+  text-color: #fff;
+}
+
+.footer-section {
+   background-color: #fff;
+   color: inherit;
+   position: relative;
+   overflow: hidden;
+}
+.footer-section {
+   padding-bottom: 30px;
+   text-align: center;
+}
+.footer-logo {
+   margin-top: 0;
+   margin-bottom: 60px;
+}
+.footer-socmed {
+   font-size: 20px;
+   line-height: 1;
+   margin-bottom: 15px;
+}
+.footer-socmed > a {
+   display: inline-block;
+   margin: 0 10px;
+   color: inherit;
+   opacity: 0.5;
+}
+.footer-socmed > a:hover, .footer-socmed > a:focus {
+   color: inherit;
+   opacity: 1;
+}
+.footer-copyright {
+   opacity: 0.5;
 }
 
 #simulator {
   margin-left: auto;
   margin-right: auto;
-  max-width: 100%;
-  max-height: 100%;
-  overflow: auto;
 }
 
 #banner {
@@ -69,8 +107,6 @@ body {
         text-transform: uppercase;
       }
     }
-
-
 
     p {
       font-size: 1.25em;

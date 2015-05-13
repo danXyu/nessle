@@ -8,11 +8,16 @@ html
     title #{title} - Nessle
     != css('main')
   body
-    //- include partials/navbar
 
-    .container-fluid
-      block content
+    //- Include preloader
+    .page-loader
+      .loader
+        | Loading...
 
-    //- include partials/footer
+    include partials/header
+
+    block content
+
+    include partials/footer
 
     != js('application')

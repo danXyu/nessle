@@ -2,199 +2,103 @@ extends ../layout
 
 block content
 
-  //- Split the page into simulator and content banner.
-  .row
+  //- The homepage hero section
+  section#home.home-section.home-fade.bg-dark-30(data-background='assets/images/neural.jpg')
+    .hs-caption
+      .caption-content
+        .hs-title-size-1.font-alt.mb-30
+          | Meet your universally accessible companion
+        .hs-title-size-4.font-alt.mb-40
+          | Nessle is&nbsp;
+          span.rotate Smart | Quick | Yours
 
-    //- Content banner
-    .col-md-8
-      #banner
-        .inner
-          header
-            h2 Nessle
-          p Access the internet. Even without an internet connection
-          br
-          p To Get Started: <strong>Query</strong> the simulator or <strong>Text</strong> (925) 326-6640
-          br
-          br
-          p Here are some example queries
-          #directions-carousel.carousel.slide(data-interval='3000', data-ride='carousel')
+  //- The actual rest of the page
+  .main
 
-            //- Indicators
-            ol.carousel-indicators
-              li.active(data-target='#directions-carousel', data-slide-to='0')
-              li(data-target='#directions-carousel', data-slide-to='1')
-              li(data-target='#directions-carousel', data-slide-to='2')
+    //- What is Nessle?
+    section#about.module
+      .container
+        .row
+          .col-sm-8.col-sm-offset-2
+            h2.module-title.font-alt What is Nessle?
+            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+            .module-subtitle.large-text
+              | Its&rsquo;s just an idea. The idea that we should always have access to the information we need. But what's the one form of network that's most universally available at the moment? Our cellular networks. Now, even without a data plan, you can query the internet for the answers you need whenever you need it!
+        .row
+          .col-sm-2.col-sm-offset-5
+            .large-text.align-center
+              a.section-scroll.btn.btn-border-w.btn-circle.special(href='#alt-features') Click to Try it Out!
+              //- a.section-scroll(href='#alt-features')
+              //-   | Try it out!
+              //-   i.fa.fa-angle-down
 
-            //- Items
-            .carousel-inner
-              .active.item
-                h3 Facts and Figures
-                br
-                p <strong>Query</strong>: How tall is the Eiffel Tower?
-                p <strong>Response</strong>: 324 meters.
-                br
-                p <strong>Query</strong>: How many people are in the world?
-                p <strong>Response</strong>: 7.13 billion people.
-              .item
-                h3 Conversions
-                br
-                p <strong>Query</strong>: How many grams are in an ounce?
-                p <strong>Response</strong>: 28.35 grams.
-                br
-                p <strong>Query</strong>: Convert 4 cups to tablespoons.
-                p <strong>Response</strong>: 64 tbsp.
-              .item
-                h3 Mathematics
-                br
-                p <strong>Query</strong>: What is 4x4?
-                p <strong>Response</strong>: 16.
-                br
-                p <strong>Query</strong>: What is 37x37?
-                p <strong>Response</strong>: 1369.
-
-          p Facebook and Twitter Integration is almost here!
-
-    //- Simulator
-    .col-md-4
-      #colour.white
-        #iPhone.on
-          b.lock
-            span.btn-outer
-          b.rotation.btn-outer
-          b.volume.up
-            span.btn-outer
-          b.volume.down
-            span.btn-outer
-          span.strip.top-left
-          span.strip.top-right
-          span.strip.bottom-left
-          span.strip.bottom-right
-          span.camera-front
-            span
-          span.speaker
-            span.inner
-              span
-                | .............................
-                br
-                | .............................
-                br
-                | .............................
-          b.home
-            span
-          .inner-1
-            .inner-2
-              .screen
-                .screen-inner
-                  #multitasking.app
-                    .app-list
-                      .panel.one
-                        .open-home
-                        .open-phone
-                      .panel.two
-                        .open-messages
-                        .open-mail
-                  #siri.hide
-                  #search.app
-                  #search-keyboard
-                  #pull-down
-                    b.handle-btn
-                  #widgets-menu
-                    ul.widgets
-                      li.airplane.off
-                      li.wifi
-                      li.bluetooth
-                    ul.widgets-sub
-                      li.dnd.off
-                      li.rotation-lock.off
-                    b#hide-widgets-menu
-                  .status-bar
-                    ul.signal
-                      li
-                      li
-                      li
-                      li
-                      li
-                    span.network Nessle
-                    .icons
-                      i.airplane.off
-                      i.wifi
-                      i.bluetooth
-                    .time
-                      span#text-hour
-                      | :
-                      span#text-minute
-                    .battery
-                      span.percentage 100%
-                      span.charge
-                      i
-                  #messages.app
-                    .bg
-                    #messages-output
-                      span.sender Welcome to Nessle! Your untethered connection to the internet.
-                    .header
-                    input#messages-input(placeholder='iMessage')
-                    .submit.messages-send
-                    .keyboard
-                      ul.row1
-                        li(data-value='q')
-                          span Q
-                        li(data-value='w')
-                          span W
-                        li(data-value='e')
-                          span E
-                        li(data-value='r')
-                          span R
-                        li(data-value='t')
-                          span T
-                        li(data-value='y')
-                          span Y
-                        li(data-value='u')
-                          span U
-                        li(data-value='i')
-                          span I
-                        li(data-value='o')
-                          span O
-                        li(data-value='p')
-                          span P
-                      ul.row2
-                        li(data-value='a')
-                          span A
-                        li(data-value='s')
-                          span S
-                        li(data-value='d')
-                          span D
-                        li(data-value='f')
-                          span F
-                        li(data-value='g')
-                          span G
-                        li(data-value='h')
-                          span H
-                        li(data-value='j')
-                          span J
-                        li(data-value='k')
-                          span K
-                        li(data-value='l')
-                          span L
-                      ul.row3
-                        li.btn.shift
-                          i.shift
-                        li(data-value='z')
-                          span Z
-                        li(data-value='x')
-                          span X
-                        li(data-value='c')
-                          span C
-                        li(data-value='v')
-                          span V
-                        li(data-value='b')
-                          span B
-                        li(data-value='n')
-                          span N
-                        li(data-value='m')
-                          span M
-                        li.btn.delete
-                          i.delete ×
-                      ul.row4
-                        li.btn.numbers .?123
-                        li.btn.space(data-value=' ') space
-                        li.btn.return.messages-send return
+    //- The Simulator!
+    section#alt-features.module
+      .container
+          .row
+            .col-sm-6.col-sm-offset-3
+              h2.module-title.font-alt Give it a try!
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .module-subtitle.font-serif
+                | Simply text the number '(925) 326-6640' with any query you would like answered or test it on the simulator below! Please note that some queries can be computed by the server, which makes use of the Wolfram Alpha API.
+          .row
+            .col-sm-6.col-md-3
+              .alt-features-item
+                .alt-features-icon
+                  span.icon-strategy
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                h3.alt-features-title.font-alt Example Query
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;How tall is the Eiffel Tower?
+                span.answer
+                  | 324 meters.
+              .alt-features-item
+                .alt-features-icon
+                  span.icon-tools-2
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                h3.alt-features-title.font-alt Example Query
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;How many people are in the world?
+                span.answer
+                  | 7.13 billion people.
+              .alt-features-item
+                .alt-features-icon
+                  span.icon-target
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                h3.alt-features-title.font-alt Example Query
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;How many grams are in an ounce?
+                span.answer
+                  | 28.35 grams.
+              .alt-features-item
+                .alt-features-icon
+                  span.icon-tools
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                h3.alt-features-title.font-alt Example Query
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Convert 4 cups to tablespoons.
+                span.answer
+                  | 64 tbsp.
+            .col-sm-6.col-md-3.col-md-offset-1
+              include simulator
+            .col-sm-6.col-md-3.col-md-offset-1
+              .alt-features-item
+                .alt-features-icon
+                  span.icon-camera
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                h3.alt-features-title.font-alt Speed
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;The answer is returned in a matter of seconds. Speed allows users to get the information they need when they need it.
+              .alt-features-item
+                .alt-features-icon
+                  span.icon-mobile
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                h3.alt-features-title.font-alt Mobile
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Nessle was designed specifically for mobile! Simply take your mobile phone and text the number given with any query you would like answered.
+              .alt-features-item
+                .alt-features-icon
+                  span.icon-linegraph
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                h3.alt-features-title.font-alt Connectivity
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;The whole design of Nessle allows users to connect with the internet, even without the internet. Just through text.
+              .alt-features-item
+                .alt-features-icon
+                  span.icon-basket
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                h3.alt-features-title.font-alt Universality
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;The span of questions that are available for questioning is incredible. Most, if not all, questions can be adequately answered by the API.
